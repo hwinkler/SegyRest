@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SegyServlet</name>
+	<comment></comment>
+	<projects>
+		<project>Scout</project>
+		<project>SegyShare</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>WEB-INF</name>
+			<type>2</type>
+			<location>C:/Program Files/Apache Group/Tomcat 4.1/webapps/segy/WEB-INF</location>
+		</link>
+		<link>
+			<name>scout</name>
+			<type>2</type>
+			<location>C:/Documents and Settings/Hugh/Projects/SegyRest/scout/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>

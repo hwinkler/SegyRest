@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Hugh Winkler (private) -->
+<segy-servlet-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Documents and Settings\Hugh\My Documents\SegyServlet\segy-config.xsd">
+	<mounts>
+		<directory>
+			<filesystem-path/>
+			<relative-uri/>
+		</directory>
+	</mounts>
+</segy-servlet-config>

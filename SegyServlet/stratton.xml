@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dataset xmlns:xlink="http://www.w3.org/1999/xlink">
+	<Format>
+		<Standard>SEG-Y</Standard>
+	</Format>
+	<Organization>
+		<LineInfos>
+			<LineInfo xlink:href="http://hughw.net/segy/data/stratton/inline-1.xml" orientation="inline" ID="inline-1">
+				<Endpoint1 x="10110" y="98"/>
+				<Endpoint2 x="20110" y="1098"/>
+			</LineInfo>
+			<LineInfo xlink:href="http://hughw.net/segy/data/stratton/inline-2.xml" orientation="inline" ID="inline-2">
+				<Endpoint1 x="10110" y="98"/>
+				<Endpoint2 x="20110" y="1098"/>
+			</LineInfo>
+			<LineInfo xlink:href="http://hughw.net/segy/data/stratton/inline-3.xml" orientation="inline" ID="inline-3">
+				<Endpoint1 x="10110" y="98"/>
+				<Endpoint2 x="20110" y="1098"/>
+			</LineInfo>
+			<LineInfo xlink:href="http://hughw.net/segy/data/stratton/crossline-1.xml" orientation="crossline" ID="crossline-1">
+				<Endpoint1 x="10110" y="98"/>
+				<Endpoint2 x="20110" y="1098"/>
+			</LineInfo>
+			<LineInfo xlink:href="http://hughw.net/segy/data/stratton/crossline-2.xml" orientation="crossline" ID="crossline-2">
+				<Endpoint1 x="10110" y="98"/>
+				<Endpoint2 x="20110" y="1098"/>
+			</LineInfo>
+			<LineInfo xlink:href="http://hughw.net/segy/data/stratton/crossline-3.xml" orientation="crossline" ID="crossline-3">
+				<Endpoint1 x="10110" y="98"/>
+				<Endpoint2 x="20110" y="1098"/>
+			</LineInfo>
+		</LineInfos>
+	</Organization>
+</Dataset>

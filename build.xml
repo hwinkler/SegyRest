@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="segyrest">
+    <target name="init">
+        <tstamp /> 
+         <echo message="java home: ${java.home}" /> 
+         <echo message="java version: ${java.version}" /> 
+         <echo message="ant java version: ${ant.java.version}" /> 
+         <echo message="${ant.version}" /> 
+         
+         
+          <property name="build.dir" value="build"/>
+         
+         
+    </target>
+ 
+    <path id="build.classpath">
+        <pathelement location="../Environment/Jena-2.0/lib/jena.jar"/>
+        <pathelement location="../Environment/win32/j2sdkee-1.3.1/lib/j2ee.jar"/>
+    </path>
+    
+    
+    <target name="clean" depends="init">
+        <delete dir="${build.dir}" verbose="false"/>
+        <delete>
+          <fileset dir="." includes="*.jar *.war"/>
+        </delete>
+    </target>
+           
+    <target name="all" depends="init, war"/>
+
+    <target name="war" depends="init,jar">
+
+         <war warfile="segy.war" webxml="./WEB-INF/web.xml">
+                 <!--fileset dir="./" includes="*.jar"/-->
+                 <webinf  dir="./WEB-INF"    includes="**/*" excludes="web.xml, **/*.jar, **/*.class"/>
+                 <lib     dir="../Environment/Jena-2.0/lib" includes="*.jar" excludes="junit.jar"/>
+                 <classes dir="${build.dir}/SegyServlet/classes" includes="**/*" />
+                 <classes dir="${build.dir}/SegyShare/classes" includes="**/*" />
+                 <classes dir="${build.dir}/RenderTag/classes" includes="**/*" />
+                 <classes dir="${build.dir}/scout/classes" includes="**/*" />
+         </war>
+     
+    </target>
+    
+    <target name="jar" depends="init,jar.SegyShare, jar.RenderTag, jar.SegyServlet, jar.scout"/>
+ 
+    <target name="jar.SegyShare" depends="compile.SegyShare">
+          <jar destfile="SegyShare.jar"
+                basedir="${build.dir}/SegyShare/classes"
+                excludes="**/Test.class"
+          />
+    </target>
+    <target name="jar.SegyServlet" depends="compile.SegyServlet">
+          <jar destfile="SegyServlet.jar"
+                basedir="${build.dir}/SegyServlet/classes"
+                excludes="**/Test.class"
+          />
+    </target>
+     <target name="jar.RenderTag" depends="compile.RenderTag">
+          <jar destfile="RenderTag.jar"
+                basedir="${build.dir}/RenderTag/classes"
+                excludes="**/Test.class"
+          />
+    </target>
+    <target name="jar.scout" depends="compile.scout">
+          <jar destfile="scout.jar"
+                basedir="${build.dir}/scout/classes"
+                excludes="**/Test.class"
+          />
+    </target>
+    
+    <target name="compile.SegyShare" depends="init">
+        <mkdir dir="${build.dir}/SegyShare/classes"/>
+        <javac 
+            srcdir="SegyShare/src"
+            destdir="${build.dir}/SegyShare/classes"
+            excludes="**/.svn/**/*" debug="on" deprecation="on" >
+           <classpath refid="build.classpath"/>
+           
+       </javac>      
+    </target>
+  
+    <target name="compile.SegyServlet" depends="init, jar.scout">
+        <mkdir dir="${build.dir}/SegyServlet/classes"/>
+        <javac 
+            srcdir="SegyServlet/src"
+            destdir="${build.dir}/SegyServlet/classes"
+            excludes="**/.svn/**/*" debug="on" deprecation="on" >
+            <classpath refid="build.classpath"/>
+           <classpath>
+                <pathelement location="scout.jar"/>
+            </classpath>
+       </javac>
+       
+       <copy todir="${build.dir}/SegyServlet/classes">
+            <fileset dir="SegyServlet/src" includes="**/*" excludes="**/*.java,**/.svn/**/*"/>
+       </copy>     
+    </target>
+    
+    <target name="compile.RenderTag" depends="init, jar.scout">
+         <mkdir dir="${build.dir}/RenderTag/classes"/>
+       <javac 
+            srcdir="RenderTag/src"
+            destdir="${build.dir}/RenderTag/classes"
+            excludes="**/.svn/**/*" debug="on" deprecation="on">
+            <classpath refid="build.classpath"/>
+            <classpath>
+                <pathelement location="scout.jar"/>
+            </classpath>
+       </javac>      
+    </target>
+  
+    <target name="compile.scout" depends="init">
+        <mkdir dir="${build.dir}/scout/classes"/>
+        <javac 
+            srcdir="scout/src"
+            destdir="${build.dir}/scout/classes"
+            excludes="**/.svn/**/*" debug="on" deprecation="on" >
+            <classpath refid="build.classpath"/>
+       </javac>      
+       
+       <copy todir="${build.dir}/scout/classes">
+            <fileset dir="scout/src" includes="**/*" excludes="**/*.java,**/.svn/**/*" />
+       </copy>     
+    </target>
+  
+    
+</project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry excluding=".svn/|**/.svn/" kind="src" path="src"/>
+    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+    <classpathentry kind="src" path="/SegyShare"/>
+    <classpathentry kind="src" path="/Scout"/>
+    <classpathentry kind="var" path="TOMCAT411/common/lib/servlet.jar" sourcepath="TOMCAT411/src"/>
+    <classpathentry excluding=".svn/|**/.svn/" kind="src" path="scout"/>
+    <classpathentry excluding=".svn/|**/.svn/" kind="src" path="test"/>
+    <classpathentry kind="lib" path="C:/eclipse/plugins/org.junit_3.8.1/junit.jar"/>
+    <classpathentry kind="lib" path="C:/Documents and Settings/Hugh/Projects/Environment/Jena-2.0/lib/jena.jar"/>
+    <classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>
